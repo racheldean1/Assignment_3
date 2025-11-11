@@ -7,7 +7,7 @@ for h = 1:H
     for k=1:K
         sea = sea + coef.alpha(k)*cos(2*pi*k*t/s) + coef.beta(k)*sin(2*pi*k*t/s);
     end
-    acc = coef.c + coef.d * t + sea;
+    acc = coef.c + coef.d * t + sea;   %changed to add missing coefficient
     for i = 1:N
         if h-i <= 0
             acc = acc + coef.a(i)*y(T-(i-1));
