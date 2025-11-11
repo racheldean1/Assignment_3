@@ -17,9 +17,9 @@ function [A,b,meta] = build_design(y, s, N, K)
     b = y(N+1:T);
     A = ones(M, p);
     col = 1;
-    t = (N+1:T).';     
-    col = col + 1;      
-    A(:, col) = t;
+    t = (N+1:T).';      % moved from below 
+    col = col + 1;      % added 
+    A(:, col) = t;      % added 
     % lag columns
     for i = 1:N
         col = col + 1;
