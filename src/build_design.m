@@ -10,7 +10,7 @@ function [A,b,meta] = build_design(y, s, N, K)
 %   meta : struct with fields: .rows=M, .p=p, .t=(N+1:T).'
 %
     y = y(:); T = numel(y);
-    M = T - N; p = 2 + N + 2*K;
+    M = T - N; p = 2 + N + 2*K;   % changed 1 to 2
     if M <= p
         error('Underdetermined: T-N (= %d) must exceed p (= %d).', M, p);
     end
