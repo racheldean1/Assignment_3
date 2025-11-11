@@ -15,3 +15,5 @@ function x = qr_solve_dense(A,b)
         x(i) = (y(i) - R(i,i+1:end)*x(i+1:end)) / R(i,i);
     end
 end
+
+% nothing changed
