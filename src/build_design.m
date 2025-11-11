@@ -10,19 +10,21 @@ function [A,b,meta] = build_design(y, s, N, K)
 %   meta : struct with fields: .rows=M, .p=p, .t=(N+1:T).'
 %
     y = y(:); T = numel(y);
-    M = T - N; p = 1 + N + 2*K;
+    M = T - N; p = 2 + N + 2*K;
     if M <= p
         error('Underdetermined: T-N (= %d) must exceed p (= %d).', M, p);
     end
     b = y(N+1:T);
     A = ones(M, p);
     col = 1;
+    t = (N+1:T).';     
+    col = col + 1;      
+    A(:, col) = t;
     % lag columns
     for i = 1:N
         col = col + 1;
         A(:, col) = y(N+1-i : T-i);
     end
-    t = (N+1:T).';
     % cosine columns
     for k = 1:K
         col = col + 1;
