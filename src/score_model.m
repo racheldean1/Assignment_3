@@ -6,3 +6,6 @@ function S = score_model(RSS, M, p, criterion)
         S = M*log(RSS/M) + 2*p;
     end
 end
+
+
+% nothing changed 
