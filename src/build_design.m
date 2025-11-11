@@ -18,8 +18,8 @@ function [A,b,meta] = build_design(y, s, N, K)
     A = ones(M, p);
     col = 1;
     t = (N+1:T).';      % moved from below 
-    col = col + 1;      % added 
-    A(:, col) = t;      % added 
+    col = col + 1;      % added for indexing
+    A(:, col) = t;      % added trend term (t) to matrix
     % lag columns
     for i = 1:N
         col = col + 1;
