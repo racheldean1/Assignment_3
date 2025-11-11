@@ -11,7 +11,7 @@ function [A,b,meta] = build_design(y, s, N, K)
 %
     y = y(:); T = numel(y);
     M = T - N; p = 2 + N + 2*K;   % changed 1 to 2 to add for other trend
-    if M < p % equals removed for no noise
+    if M < p % equals removed for no noise - means that M = p is allowed
         error('Underdetermined: T-N (= %d) must exceed p (= %d).', M, p);
     end
     b = y(N+1:T);
